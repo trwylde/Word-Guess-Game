@@ -10,19 +10,23 @@
    
     /*Display on page "Press any key to begin!"
       #box-left empty, #box-right holds score, letters guessed and guesses left*/
+    function begin() {
+      var u = u.value.toUpperCase();
+    }
 
     /* Wins & Losses set to 0. Guesses Remaining set to 10*/    
   var c 
   var x
   var wins = 0;
   var guessesRemaining = 10;
-  
+  var u /*used for function toUpperCase
+    
     /*lettersIncArray empty at "function begin", will populate with letters incorrectly guessed. lettersCrctArray will be filled with 
     underscores, same number as in solution for randomly chosen word.*/
   var lettersIncArray = [];
   var lettersCrctArray = [];
 
-    function begin() {
+    function play() {
       
       for (var i = 0; i < randomCity.length; i++)
       {
