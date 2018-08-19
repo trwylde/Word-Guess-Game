@@ -1,78 +1,65 @@
     /*Create arrary of the solutions (cities) that will populate the game; 
       each city is a string*/
 
-  var randomCityArr = ["PARIS","SAO PAOLO","HAVANA","MOSCOW","NEW YORK","BEIRUT","LONDON","FLORENCE","LAGOS","REYKJAVIK"]; 
-      /*console.log (randomCityArr); so far, so good*/ 
+    /*VARIABLES*/
+    /*====================================================================================================================*/
+  var randomCityArr = ["ATHENS","BEIJING","BEIRUT","BERLIN","BOGOTA","GLASGOW","HAVANA","JOHANNESBURG","LISBON","LONDON","MADRID","MOSCOW","NAPLES","NASHVILLE","NEW YORK","PARIS","REYKJAVIK","RIO DE JANEIRO","SAN JUAN","TEL AVIV","TOKYO","VENICE"]; 
     
-    /*The computer selects a word at random, the user must guess*/
+    
+    /*The computer selects a city at random, the user must guess one letter at a time*/
   var randomCity = randomCityArr[Math.floor(Math.random() * randomCityArr.length)];
-      
-   
-    /*Display on page "Press any key to begin!"
-      #box-left empty, #box-right holds score, letters guessed and guesses left*/
-    function begin() {
-      var u = u.value.toUpperCase();
-    }
+      console.log (randomCity)
+      console.log (randomCityArr)
 
+    /*all letters selected will be displayed as upper case value.toUpperCase();*/
     /* Wins & Losses set to 0. Guesses Remaining set to 10*/    
-  var c 
-  var x
+  
+  var playerGuess = document.getElementById("player-guess").innerHTML;
   var wins = 0;
+  var losses = 0;
   var guessesRemaining = 10;
-  var u /*used for function toUpperCase
+
     
     /*lettersIncArray empty at "function begin", will populate with letters incorrectly guessed. lettersCrctArray will be filled with 
     underscores, same number as in solution for randomly chosen word.*/
   var lettersIncArray = [];
   var lettersCrctArray = [];
 
-    function play() {
-      
-      for (var i = 0; i < randomCity.length; i++)
-      {
-      lettersCrctArray[i] = "_";
-      } /*closes for*/
+    /*FUNCTIONS*/
+    /*=====================================================================================================================*/
 
-      /*joins them in a string*/
-      c = lettersCrctArray.join(" ");
-      document.getElementById("answer").innerHTML = c;
-    } /*closes function begin*/
-
-    function Letter() {
-
-      var letter = documentgetElementById("letter").value;
-
-        /*only letters can be guessed*/
-      if (letter.length > 0) {
-        
-        for (var i = 0; i < randomCity.length; i++)
-
-            /*if user typed letter contained in randomCity, it will be assigned to a letter*/
-          if (randomCity[i] === letter) {
-
-            lettersCrctArray[i] = letter;
-          }   
-
-          
-      }
-      count++;
-      document.getElementById("counter"),innerHTML = "Gueses remaining: " - count;
-      document.getElementById("answer").innerHTML = lettersCrctArray.join(" ");
-    }
+    document.onkeyup = function(event) {
+      playerGuess.textContent = event.key;
+    };
 
 
 
 
+
+
+    /*GAME PLAY*/
 
 
   
+  
+  function play() {
+      
+    for (var i = 0; i < randomCity.length; i++) {
+      lettersCrctArray[i] = "_";
+    /*if playerGuess is correct*/
+      if (playerGuess = lettersCrctArray) {
+        console.log("right")
+     }
+      else {
+        console.log("wrong")
+      }
+    
+    } /*closes for*/
 
-
-
-
-
-    /*First key pressed initializes random math. Display number of empty spaces equal 
-      to the number of letters in the word to be guessed.*/
+    /*joins them in a string*/
+    /*playerGuess = lettersCrctArray.join(" ");*/
+    /*document.getElementById("lettersCrct").innerHTML = playerGuess;*/
+ } /*closes function play*/
 
 
 
