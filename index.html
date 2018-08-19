@@ -48,15 +48,18 @@
         <div class="card text-center">
           <div class="card-header" >
             <h1>Guess a letter</h1>
+<!--            <div class="alert alert-danger" id="not-abc" role="alert">
+              A simple danger alert—check it out!
+            </div>    if player hits a key that is not a letter -->
           </div> <!--closes .card-header-->
           <div class="card-body">
             <h5 class="card-title"></h5>
             <!--may need this above in h5: input id="letter" type="text"-->
-            <p class="card-text"><span id="player-guess"></span></p>
+            <p class="card-text"><span id="letters-crct"></span></p>
           </div> <!--closes .card-body-->
           <div class="card-footer text-muted">
             <h5>Letters Already Guessed</h5>
-            <p> </p>
+            <p><span id="letters-inc"></span> </p>
           </div> <!--closes card-footed text-muted-->
         </div> <!--closes .card text-center-->
       </div> <!--closes .col-md-6-->
