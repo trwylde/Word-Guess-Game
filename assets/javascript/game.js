@@ -1,6 +1,6 @@
     /*Create arrary of the solutions (cities) that will populate the game; 
       each city is a string*/
-
+//document.getElementById("Hi").innerHTML = "Don't you wish you were here?!"; just a test... IT WORKS!!
     /*VARIABLES*/
     /*====================================================================================================================*/
   var randomCityArr = ["ATHENS","BEIJING","BEIRUT","BERLIN","BOGOTA","GLASGOW","HAVANA","JOHANNESBURG","LISBON","LONDON","MADRID","MOSCOW","NAPLES","NASHVILLE","NEW YORK","PARIS","REYKJAVIK","RIO DE JANEIRO","SAN JUAN","TEL AVIV","TOKYO","VENICE"]; 
@@ -14,7 +14,7 @@
     /*all letters selected will be displayed as upper case value.toUpperCase();*/
     /* Wins & Losses set to 0. Guesses Remaining set to 10*/    
   
-  var playerGuess = document.getElementById("player-guess").innerHTML;
+  var userText = document.getElementById("player-guess");
   var wins = 0;
   var losses = 0;
   var guessesRemaining = 10;
@@ -29,7 +29,7 @@
     /*=====================================================================================================================*/
 
     document.onkeyup = function(event) {
-      playerGuess.textContent = event.key;
+      userText.textContent = event.key;
     };
 
 
@@ -42,24 +42,6 @@
 
   
   
-  function play() {
-      
-    for (var i = 0; i < randomCity.length; i++) {
-      lettersCrctArray[i] = "_";
-    /*if playerGuess is correct*/
-      if (playerGuess = lettersCrctArray) {
-        console.log("right")
-     }
-      else {
-        console.log("wrong")
-      }
-    
-    } /*closes for*/
-
-    /*joins them in a string*/
-    /*playerGuess = lettersCrctArray.join(" ");*/
-    /*document.getElementById("lettersCrct").innerHTML = playerGuess;*/
- } /*closes function play*/
 
 
 
