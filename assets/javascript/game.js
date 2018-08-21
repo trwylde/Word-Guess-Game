@@ -1,72 +1,78 @@
     /*Create arrary of the solutions (cities) that will populate the game; 
       each city is a string*/
-//document.getElementById("Hi").innerHTML = "Don't you wish you were here?!"; just a test... IT WORKS!!
-    /*VARIABLES*/
+    
+      /*VARIABLES*/
     /*====================================================================================================================*/
   var cityArr = ["ATHENS","BEIJING","BEIRUT","BERLIN","BOGOTA","GLASGOW","HAVANA","JOHANNESBURG","LISBON","LONDON","MADRID","MOSCOW","NAPLES","NASHVILLE","NEW YORK","PARIS","REYKJAVIK","RIO DE JANEIRO","SAN JUAN","TEL AVIV","TOKYO","VENICE"]; 
-    
-    //to control game start/stop
-var gameStatus = false;   
-    
+
+    //gameStatus is the start/stop of game play
+  var gameStatus = false;
+
     /*The computer selects a city at random, the user must guess one letter at a time*/
   var randomCity = cityArr[Math.floor(Math.random() * cityArr.length)];
       console.log (randomCity)
       console.log (cityArr)
-
+  //var beforeImg = randomCity.watercolor
+  //var afterImg = randomCity.postcard
+    
     /*all letters selected will be displayed as upper case value.toUpperCase();*/
+
+  var abc = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var guessText = document.getElementById("guess-text");
+  var lettersCrct = document.getElementById("lettersCrct-text");
+    
     /* Wins & Losses set to 0. Guesses Remaining set to 10*/    
-  
-  var userText = document.getElementById("letters-crct");
-  var wins = 0;
-  var losses = 0;
-  var guessesRemaining = 10;
+  var wins = "Wins" + 0;
+  var losses = "Losses" + 0;
+  var guessesRemaining = "Guesses Remaining" + 10;
 
-   
-    /*lettersIncArray empty at "function begin", will populate with letters incorrectly guessed. lettersCrctArray will be filled with 
-    underscores, same number as in solution for randomly chosen word.*/
-  var lettersIncArray = [];
-  var lettersCrctArray = [];
+  //  var notAbc = alert("Please select a letter");
+    
+    //Dynamically fill an array with letters correctly guessed (checked against randomCity)
+  var citySpell = [];
 
-    /*FUNCTIONS*/
+      /*Event Listeners*/
     /*=====================================================================================================================*/
+    //renderRandomCity();
+    //updateScore();
+    
+    document.addEventListener("keypress", function(event) {
+      if (gameStatus) {
+        checkGuess(event);
+      }
+      else {
+        play();
+    }
+  });
 
 
+      /*FUNCTIONS*/
+    /*=====================================================================================================================*/
+    document.onkeyup = function(event){
+      guessText.textContent = event.key;
+      console.log(guessText.textContent);
+  };
 
-    //var lettersArr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    
+    
 
+ 
 
-    function play() {
-      
-      for (var i = 0; i < randomCity.length; i++)
-      {
-      lettersCrctArray[i] = "_";
-      } /*closes for*/
+/*To begin playing or reset the game*/
+/*==========================================================================================================================*/
+  function play() {
+    //changes gameStatus to true(ready)
+    gameStatus = true;
+    console.log(gameStatus);
+  }
 
-      /*joins them in a string*/
-      playerGuess = lettersCrctArray.join(" ");
-      document.getElementById("letters-crct").innerHTML = letters;
-    } /*closes function begin*/
+  // Generate new randomCity, display it (as underscores) and its related images
+  randomCity = cityArr[Math.floor(Math.random() * cityArr.length)];
 
-//    function Letter() {
+  //Reset guessesRemaining
+//guessesRemaining = "Guesses Remaining" + 10;
 
-//      var letter = documentgetElementById("letter").value;
-//    }
-
-           
-
-          
-      
-
-
-
-
-    /*GAME PLAY*/
-
-
-  
-  
-
-
+//citySpellArr = [];
 
 
 
