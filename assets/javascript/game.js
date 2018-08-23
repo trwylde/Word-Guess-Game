@@ -1,88 +1,119 @@
-    /*Create arrary of the solutions (cities) that will populate the game; 
+/*Create arrary of the solutions (cities) that will populate the game; 
       each city is a string*/
     
       /*VARIABLES*/
     /*====================================================================================================================*/
-  var cityArr = ["ATHENS","BEIJING","BEIRUT","BERLIN","BOGOTA","GLASGOW","HAVANA","JOHANNESBURG","LISBON","LONDON","MADRID","MOSCOW","NAPLES","NASHVILLE","NEW YORK","PARIS","REYKJAVIK","RIO DE JANEIRO","SAN JUAN","TEL AVIV","TOKYO","VENICE"]; 
+  var cityIndex = ["ATHENS","BEIJING","BEIRUT","BERLIN","BOGOTA","GLASGOW","HAVANA","LISBON","LONDON","MADRID",
+                    "MIAMI","MOSCOW","NAPLES","NASHVILLE","PARIS","REYKJAVIK","SOWETO", "TOKYO","VENICE",]; 
+
+  //var beforeImg = randomCity.watercolor
+  //var afterImg = randomCity.postcard    
 
     //gameStatus is the start/stop of game play
-  var gameStatus = false;
+  //var gameStatus = false;
 
-    /*The computer selects a city at random, the user must guess one letter at a time*/
-  var randomCity = cityArr[Math.floor(Math.random() * cityArr.length)];
-      console.log (randomCity)
-      console.log (cityArr)
-  //var beforeImg = randomCity.watercolor
-  //var afterImg = randomCity.postcard
-    
-    /*all letters selected will be displayed as upper case value.toUpperCase();*/
 
-  var abc = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-  var guessText = document.getElementById("guess-text");
-  var lettersCrct = document.getElementById("lettersCrct-text");
-    
-    /* Wins & Losses set to 0. Guesses Remaining set to 10*/    
-  var wins = "Wins" + 0;
-  var losses = "Losses" + 0;
-  var guessesRemaining = "Guesses Remaining" + 10;
+      /*SCORING*/
+    /*=====================================================================================================================*/     
+  var wins = 0;
+  var losses = 0;
+  var guessesRemaining = 10;
 
-  //  var notAbc = alert("Please select a letter");
-    
-    //Dynamically fill an array with letters correctly guessed (checked against randomCity)
-  var citySpell = [];
-
-      /*Event Listeners*/
+      /*GLOBALS*/
     /*=====================================================================================================================*/
-    //renderRandomCity();
-    //updateScore();
     
-    document.addEventListener("keypress", function(event) {
-      if (gameStatus) {
-        checkGuess(event);
-      }
-      else {
-        play();
-    }
-  });
-
-
+    /*The computer selects a city at random, the user must guess one letter at a time*/
+  var randomCity = "";
+    //console.log (randomCity);
+    console.log (cityIndex); 
+  
+    //Dynamically fill an array with letters correctly or incorrectly guessed (checked against randomCity)
+  var citySpell = [];
+  var lettersCrct = [];
+  var lettersInc = [];
+  var letterPlayed = [];
+  var slots = [];
       /*FUNCTIONS*/
     /*=====================================================================================================================*/
-    document.onkeyup = function(event){
-      guessText.textContent = event.key;
-      console.log(guessText.textContent);
-  };
-
-    
-    
-
- 
-
-/*To begin playing or reset the game*/
-/*==========================================================================================================================*/
   function play() {
-    //changes gameStatus to true(ready)
-    gameStatus = true;
-    console.log(gameStatus);
-  }
+  
+  randomCity = cityIndex[Math.floor(Math.random() * cityIndex.length)];
+    //console.log(randomCity);  //this only prints to the console once remove the curly braces from function play and comment out ''.
 
-  // Generate new randomCity, display it (as underscores) and its related images
-  randomCity = cityArr[Math.floor(Math.random() * cityArr.length)];
+  lettersCrct = randomCity.split("");
 
-  //Reset guessesRemaining
-//guessesRemaining = "Guesses Remaining" + 10;
+  slots = lettersCrct.length;
+      //console.log(slots);
+  citySpell = [];
+    document.getElementById("crct-spell").innerHTML = citySpell.join(" ");
+    for (var i = 0; i < slots; i++) {
+      citySpell.push("_");
+    } 
+      //console.log(citySpell);
+      
+  lettersInc = [];
+    document.getElementById("inc-spell").innerHTML = lettersInc.join(" ");
+    
+  guessesRemaining = 10;
+    document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
+    
+  } //closes function play()
 
-//citySpellArr = [];
+  function valid8Guess(letter)  {
+      
+    var letterFound = false;
+      
+    for (var i = 0; i < slots; i++) {
+      if (randomCity[i] === letter) {
+        letterFound = true;
+      }
+    }
 
+    if (letterFound)  { 
+      for (var c = 0; c < slots; c++) {
+        if(randomCity[c] === letter)  {
+          citySpell[c] = letter;
+        }
+      }
+    }
+    else  {
+      lettersInc.push(letter);
+      guessesRemaining--;
+    }
+  } //closes valid8Guess function
 
+  function playedOut()  {
+    document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
+    document.getElementById("crct-spell").innerHTML = citySpell.join(" ");
+    document.getElementById("inc-spell").innerHTML = lettersInc.join(" ");
 
+    if (lettersCrct.toString() === citySpell.toString())  {
+      wins++;
+      alert("You win!"); //add images and audio clips
+        document.getElementById("wins").innerHTML = wins;
 
+    play();
 
+    }
+    else if (guessesRemaining === 0)  {
+      losses--;
+      alert("You Lose"); //add images and audio clips and reveal solution
+        document.getElementById("losses").innerHTML = losses;
+    
+    play(); 
 
+    }
+  } //closes function playedOut
 
+   /*GAME PLAY*/
+  /*=====================================================================================================================*/
 
+  play();
 
+  document.onkeyup = function(event) {  
+    letterPlayed = String.fromCharCode(event.which).toUpperCase();
 
+    valid8Guess(letterPlayed);
 
-
-
+    playedOut();
+  };

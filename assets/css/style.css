@@ -1,0 +1,25 @@
+/*
+body {
+  background: url("../images/travel_collage.png");
+}
+
+#jcontainer { 
+  opacity: .65;
+  font-weight: 900;
+}
+
+#pfooter {
+  text-align: left;
+  color: #460404;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+#sticky-footer {
+  position: static;
+  height: 50px;
+  background-color: #e7cd78;
+  opacity: .50;
+  padding-top: 8px;
+  margin-top: 15px;
+}
