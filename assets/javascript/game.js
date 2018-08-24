@@ -24,7 +24,7 @@
     
     /*The computer selects a city at random, the user must guess one letter at a time*/
   var randomCity = "";
-    //console.log (randomCity);
+    
     console.log (cityIndex); 
   
     //Dynamically fill an array with letters correctly or incorrectly guessed (checked against randomCity)
@@ -41,7 +41,7 @@
     //console.log(randomCity);  //this only prints to the console once remove the curly braces from function play and comment out ''.
 
   lettersCrct = randomCity.split("");
-
+    console.log(randomCity);
   slots = lettersCrct.length;
       //console.log(slots);
   citySpell = [];
@@ -89,16 +89,18 @@
 
     if (lettersCrct.toString() === citySpell.toString())  {
       wins++;
-      alert("You win!"); //add images and audio clips
+       //add images and audio clips corresonding to solutions
         document.getElementById("wins").innerHTML = wins;
+        document.getElementById("city-solution").innerHTML = randomCity;
 
     play();
 
     }
     else if (guessesRemaining === 0)  {
       losses--;
-      alert("You Lose"); //add images and audio clips and reveal solution
+        //add images and audio clips corresonding to solutions
         document.getElementById("losses").innerHTML = losses;
+        document.getElementById("city-solution").innerHTML = randomCity;
     
     play(); 
 
