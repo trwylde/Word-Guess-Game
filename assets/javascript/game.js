@@ -3,7 +3,7 @@
     
       /*VARIABLES*/
     /*====================================================================================================================*/
-  var cityIndex = ["ATHENS","BEIJING","BEIRUT","BERLIN","BOGOTA","GLASGOW","HAVANA","LISBON","LONDON","MADRID",
+  var cityArr = ["ATHENS","BEIJING","BEIRUT","BERLIN","BOGOTA","GLASGOW","HAVANA","LISBON","LONDON","MADRID",
                     "MIAMI","MOSCOW","NAPLES","NASHVILLE","PARIS","REYKJAVIK","SOWETO", "TOKYO","VENICE",]; 
 
   //var beforeImg = randomCity.watercolor
@@ -25,7 +25,7 @@
     /*The computer selects a city at random, the user must guess one letter at a time*/
   var randomCity = "";
     
-    console.log (cityIndex); 
+    console.log (cityArr); 
   
     //Dynamically fill an array with letters correctly or incorrectly guessed (checked against randomCity)
   var citySpell = [];
@@ -37,7 +37,7 @@
     /*=====================================================================================================================*/
   function play() {
   
-  randomCity = cityIndex[Math.floor(Math.random() * cityIndex.length)];
+  randomCity = cityArr[Math.floor(Math.random() * cityArr.length)];
     //console.log(randomCity);  //this only prints to the console once remove the curly braces from function play and comment out ''.
 
   lettersCrct = randomCity.split("");
