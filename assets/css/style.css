@@ -1,13 +1,32 @@
 
 body {
   background: url("../images/travel_collage.png");
+  font-family: 'Merienda', cursive;
+}
+
+#masthead {
+  margin-top: 40px;
+  font-size: 36px
+}
+
+#press-any {
+  font-family: 'Redressed', cursive;
+}
+
+#game-display {
+  margin-top: 50px;
 }
 
 .card-body {
-  height: 100px;
+  height: 200px;
+  font-family: 'Stalemate', cursive;
+  font-size: 40px;
 }
 
+#right-side-footer {
+  height: 140px;
 }
+
 #pfooter {
   text-align: left;
   color: #460404;
@@ -20,5 +39,6 @@ body {
   background-color: #e7cd78;
   opacity: .50;
   padding-top: 8px;
-  margin-top: 15px;
+  margin-top: 55px;
 }
+
