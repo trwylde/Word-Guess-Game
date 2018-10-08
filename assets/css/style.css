@@ -1,12 +1,15 @@
 
 body {
-  background: url("../images/travel_collage.png");
-  font-family: 'Merienda', cursive;
+  background-image: url("../images/watercolor_world_map.png");
+  background-size: cover;
+  font-family: 'Redressed', cursive;
+  color: rgb(49, 4, 49);
 }
 
 #masthead {
   margin-top: 40px;
-  font-size: 36px
+  font-size: 36px;
+  font-weight: 800;
 }
 
 #press-any {
